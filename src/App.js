@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bulma/css/bulma.css'
 
-function App() {
+import { DataStore } from '@aws-amplify/datastore'
+import { useEffect, useState } from 'react'
+import { Route } from 'react-router-dom'
+
+import CreatePost from './CreatePost'
+import { Post, Comment } from './models'
+import PostContainer from './Post'
+import NavBar from './NavBar'
+import PostList from './PostList'
+
+function App () {
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    const getData = async () => {
+      const models = await DataStore.query(Post)
+      const comments = await DataStore.query(Comment)
+      console.log(comments)
+      setPosts(models)
+    }
+    getData()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='section'>
+      <div className='container'>
+        <NavBar />
+        <div className='section'>
+          <Route path='/new'>
+            <CreatePost />
+          </Route>
+          <Route path='/post/:id'>
+            <PostContainer posts={posts} />
+          </Route>
+          <Route path='/' exact>
+            <PostList posts={posts} />
+          </Route>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

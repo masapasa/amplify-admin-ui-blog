@@ -10,15 +10,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "author": {
-                    "name": "author",
+                "text": {
+                    "name": "text",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "text": {
-                    "name": "text",
+                "author": {
+                    "name": "author",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -45,6 +45,23 @@ export const schema = {
                         "name": "byPost",
                         "fields": [
                             "postID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "iam",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
                         ]
                     }
                 }
@@ -74,16 +91,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "tags": {
-                    "name": "tags",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "postComments": {
-                    "name": "postComments",
+                "comments": {
+                    "name": "comments",
                     "isArray": true,
                     "type": {
                         "model": "Comment"
@@ -103,11 +112,28 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "iam",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }
     },
     "enums": {},
     "nonModels": {},
-    "version": "5c6d9a957da24b559251f34358116f01"
+    "version": "c9f839d0b1407a234ec3653db30b1672"
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { DataStore } from '@aws-amplify/datastore'
 import { Post } from './models'
+// import { useHistory } from 'react-router-dom'
 
 export default function CreatePost () {
   const [title, setTitle] = useState('')
@@ -19,6 +20,9 @@ export default function CreatePost () {
     )
     setTitle('')
     setContent('')
+
+    // const history = useHistory()
+    // history.push('/')
   }
 
   return (

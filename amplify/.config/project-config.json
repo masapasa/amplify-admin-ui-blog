@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "testTuesdayAfternoon",
+  "projectName": "test-tues",
   "version": "3.0",
   "frontend": "javascript",
   "javascript": {

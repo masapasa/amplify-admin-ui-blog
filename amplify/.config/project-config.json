@@ -2,8 +2,8 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "test-tues",
-  "version": "3.0",
+  "projectName": "bob",
+  "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "react",

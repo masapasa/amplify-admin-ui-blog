@@ -5,6 +5,11 @@ import CreatePost from './CreatePost'
 import PostContainer from './Post'
 import NavBar from './NavBar'
 import PostList from './PostList'
+import { 
+  Group4 
+} from './ui-components';
+
+
 
 function App () {
   return (
@@ -12,6 +17,9 @@ function App () {
       <div className='container'>
         <NavBar />
         <div className='section'>
+          <div className='section'>
+          <Group4 />
+          </div>
           <Route path='/new'>
             <CreatePost />
           </Route>

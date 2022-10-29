@@ -5,7 +5,7 @@ export default function NavBar () {
     <nav className='navbar' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
         <Link to='/' className='navbar-item'>
-          <h1 className='title'>Ali's Amplify Blog</h1>
+          <h1 className='title'>Bob's Amplify Blog</h1>
         </Link>
       </div>
       <div className='navbar-end'>
